@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adam Fahrezi-Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Adam Fahrezi — a creative developer and designer blending art with code."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- ═══════════════════════════════════
+       NAV
+  ═══════════════════════════════════ -->
+    <nav class="nav" id="navbar">
+      <div class="nav__logo">
+        <span>DOCTYPEX</span>
+      </div>
+      <ul class="nav__links">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Work</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#playground" class="nav-link">Playground</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#hero" class="mob-link">Home</a></li>
+        <li><a href="#about" class="mob-link">About</a></li>
+        <li><a href="#projects" class="mob-link">Work</a></li>
+        <li><a href="#skills" class="mob-link">Skills</a></li>
+        <li><a href="#playground" class="mob-link">Playground</a></li>
+        <li><a href="#contact" class="mob-link">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- ═══════════════════════════════════
+       HERO
+  ═══════════════════════════════════ -->
+    <section class="hero" id="hero">
+      <canvas class="hero__canvas" id="heroCanvas"></canvas>
+      <div class="hero__grid-lines"></div>
+
+      <div class="hero__content">
+        <div class="hero__tag">
+          <span class="dot dot--green"></span>
+          Available for 
+          <div class="role-container">
+          <span class="role">Web Project</span>
+          <span class="role">Web Design</span>
+          <span class="role">Coding Task</span>
+          <span class="role">Web Project</span>
+          </div>
+        </div>
+
+        <h1 class="hero__name">
+          The Frontend Engineer for the Web
+        </h1>
+
+        
+
+        <p class="hero__sub">
+          Crafting digital experiences that live at the intersection of<br />
+          <em>design intuition</em> &amp; <em>engineering precision.</em>
+        </p>
+
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--primary" id="hero-work-btn">
+            <span>Explore Work</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn--ghost" id="hero-contact-btn"
+            >Let's Talk</a
+          >
+        </div>
+        <div class="terminal-window max-w-2xl mx-auto shadow-2xl" id="terminal-container">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <span class="t-btn t-red"></span>
+              <span class="t-btn t-yellow"></span>
+              <span class="t-btn t-green"></span>
+            </div>
+            <div class="terminal-title">bash — 80x24</div>
+          </div>
+          <div class="terminal-body font-mono">
+            <div class="command-line">
+              <span class="prompt">$</span>
+              <span class="command-text"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating badge - asymmetric element -->
+      <div class="hero__badge">
+        <div class="badge-ring">
+          <svg viewBox="0 0 100 100" class="badge-svg">
+            <path
+              id="badge-circle"
+              d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+              fill="none"
+            />
+            <text>
+              <textPath href="#badge-circle" startOffset="0%">
+                CREATIVE DEV · OPEN TO WORK · UI/UX · AI ·
+              </textPath>
+            </text>
+          </svg>
+          <div class="badge-center">✦</div>
+        </div>
+      </div>
+
+      <div class="hero__scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+       ABOUT — ASYMMETRIC SPLIT
+  ═══════════════════════════════════ -->
+    <section class="about" id="about">
+      <div class="about__grid-lines"></div>
+      <div id="text" data-text="I'M A FULL-STACK DEVELOPER &amp; UI/UX DESIGNER">
+        <span>I'm a Full-stack</span><br />
+        <span>Developer</span><br />
+        <span>&amp; UI/UX Designer</span>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+       PROJECTS
+  ═══════════════════════════════════ -->
+    <section class="projects" id="projects">
+      <div class="projects__header">
+        <div class="section-label">— 02 / SELECTED WORK</div>
+        <h2 class="section-title">
+          Projects that<br /><span class="text-gradient">push limits.</span>
+        </h2>
+      </div>
+
+      <div class="projects__grid">
+        <article class="project-card project-card--large" data-tilt id="proj1">
+          <div class="project-card__bg">
+            <img src="img/lumi.png" alt="">
+          </div>
+          <div class="project-card__content">
+            <span class="project-card__year">2026</span>
+            <h3 class="project-card__title">Lumino AI Agency</h3>
+            <p class="project-card__desc">
+              AI agency platform with 3D model integration, chatbot,
+              and glassmorphism UI.
+            </p>
+            <div class="project-card__tags">
+              <span>Three.js</span><span>HTML/CSS</span><span>AI API</span>
+            </div>
+          </div>
+          <div class="project-card__overlay">
+            <a href="https://luminoweb.vercel.app/" class="project-card__cta"
+              >View Project <i class="fas fa-arrow-up-right-from-square"></i
+            ></a>
+          </div>
+        </article>
+
+        <article class="project-card" data-tilt id="proj2">
+          <div class="project-card__bg">
+            <img src="img/track.png" alt="">
+          </div>
+          <div class="project-card__content">
+            <span class="project-card__year">2026</span>
+            <h3 class="project-card__title">Hand Tracking</h3>
+            <p class="project-card__desc">
+              MediaPipe hand-tracking meets Particle a futuristic
+              gesture-controlled interface.
+            </p>
+            <div class="project-card__tags">
+              <span>Canvas</span><span>MediaPipe</span><span>JS</span>
+            </div>
+          </div>
+          <div class="project-card__overlay">
+            <a href="#" class="project-card__cta"
+              >View Project <i class="fas fa-arrow-up-right-from-square"></i
+            ></a>
+          </div>
+        </article>
+
+        <article class="project-card" data-tilt id="proj3">
+          <div class="project-card__bg">
+            <img src="img/trade.png" alt="">
+          </div>
+          <div class="project-card__content">
+            <span class="project-card__year">2025</span>
+            <h3 class="project-card__title">Crypto Trade</h3>
+            <p class="project-card__desc">
+              Interactive night market website with dynamic reviews, GPS
+              location, and booking system.
+            </p>
+            <div class="project-card__tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+          </div>
+          <div class="project-card__overlay">
+            <a href="#" class="project-card__cta"
+              >View Project <i class="fas fa-arrow-up-right-from-square"></i
+            ></a>
+          </div>
+        </article>
+
+        <article class="project-card project-card--wide" data-tilt id="proj4">
+          <div  class="project-card__bg">
+            <img src="img/smk.png" alt="">
+          </div>
+          <div class="project-card__content">
+            <span class="project-card__year">2024</span>
+            <h3 class="project-card__title">SPP Payment System</h3>
+            <p class="project-card__desc">
+              Interactive school fee payment management system featuring invoice tracking, database integration, and administrative controls.
+            </p>
+            <div class="project-card__tags">
+              <span>Bootstrap</span><span>Laravel</span><span>Mysql</span>
+            </div>
+          </div>
+          <div class="project-card__overlay">
+            <a href="#" class="project-card__cta"
+              >View Project <i class="fas fa-arrow-up-right-from-square"></i
+            ></a>
+          </div>
+        </article>
+
+        <article class="project-card" data-tilt id="proj5">
+          <div class="project-card__bg">
+            <img src="img/airbook.png" alt="">
+          </div>
+          <div class="project-card__content">
+            <span class="project-card__year">2025</span>
+            <h3 class="project-card__title">Airbook</h3>
+            <p class="project-card__desc">
+              Premium real-time AI chat UI with glassmorphism panels and live
+              API integration.
+            </p>
+            <div class="project-card__tags">
+              <span>Laravel</span><span>Tailwind</span><span>Mysql</span>
+            </div>
+          </div>
+          <div class="project-card__overlay">
+            <a href="#" class="project-card__cta"
+              >View Project <i class="fas fa-arrow-up-right-from-square"></i
+            ></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+       SKILLS
+  ═══════════════════════════════════ -->
+    <section class="skills" id="skills">
+      <div class="skills__left">
+        <div class="section-label light">— 03 / SKILLS</div>
+        <h2 class="section-title light">
+          Toolbox &amp;<br /><span class="text-stroke-light">Expertise.</span>
+        </h2>
+        <p class="skills__desc">
+          A curated set of tools I wield daily — spanning design, frontend,
+          backend, and AI.
+        </p>
+      </div>
+
+      <div class="skills__right">
+        <div class="skills__grid">
+          <div class="skill-orb" id="sk1" data-level="90">
+            <div class="orb-icon"><i class="fab fa-js"></i></div>
+            <div class="orb-label">JavaScript</div>
+            <svg class="orb-ring" viewBox="0 0 80 80">
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="rgba(255,255,255,.1)"
+                stroke-width="4"
+              />
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="#f7df1e"
+                stroke-width="4"
+                stroke-dasharray="213.6"
+                stroke-dashoffset="213.6"
+                class="orb-progress"
+                stroke-linecap="round"
+                transform="rotate(-90 40 40)"
+              />
+            </svg>
+          </div>
+
+          <div class="skill-orb" id="sk2" data-level="85">
+            <div class="orb-icon"><i class="fab fa-react"></i></div>
+            <div class="orb-label">React</div>
+            <svg class="orb-ring" viewBox="0 0 80 80">
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="rgba(255,255,255,.1)"
+                stroke-width="4"
+              />
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="#61dafb"
+                stroke-width="4"
+                stroke-dasharray="213.6"
+                stroke-dashoffset="213.6"
+                class="orb-progress"
+                stroke-linecap="round"
+                transform="rotate(-90 40 40)"
+              />
+            </svg>
+          </div>
+
+          <div class="skill-orb" id="sk3" data-level="80">
+            <div class="orb-icon"><i class="fab fa-python"></i></div>
+            <div class="orb-label">Python</div>
+            <svg class="orb-ring" viewBox="0 0 80 80">
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="rgba(255,255,255,.1)"
+                stroke-width="4"
+              />
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="#3776ab"
+                stroke-width="4"
+                stroke-dasharray="213.6"
+                stroke-dashoffset="213.6"
+                class="orb-progress"
+                stroke-linecap="round"
+                transform="rotate(-90 40 40)"
+              />
+            </svg>
+          </div>
+
+          <div class="skill-orb" id="sk4" data-level="88">
+            <div class="orb-icon"><i class="fab fa-figma"></i></div>
+            <div class="orb-label">Figma</div>
+            <svg class="orb-ring" viewBox="0 0 80 80">
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="rgba(255,255,255,.1)"
+                stroke-width="4"
+              />
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="#a259ff"
+                stroke-width="4"
+                stroke-dasharray="213.6"
+                stroke-dashoffset="213.6"
+                class="orb-progress"
+                stroke-linecap="round"
+                transform="rotate(-90 40 40)"
+              />
+            </svg>
+          </div>
+
+          <div class="skill-orb" id="sk5" data-level="75">
+            <div class="orb-icon"><i class="fab fa-node-js"></i></div>
+            <div class="orb-label">Node.js</div>
+            <svg class="orb-ring" viewBox="0 0 80 80">
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="rgba(255,255,255,.1)"
+                stroke-width="4"
+              />
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="#68a063"
+                stroke-width="4"
+                stroke-dasharray="213.6"
+                stroke-dashoffset="213.6"
+                class="orb-progress"
+                stroke-linecap="round"
+                transform="rotate(-90 40 40)"
+              />
+            </svg>
+          </div>
+
+          <div class="skill-orb" id="sk6" data-level="70">
+            <div class="orb-icon"><i class="fas fa-cube"></i></div>
+            <div class="orb-label">Three.js</div>
+            <svg class="orb-ring" viewBox="0 0 80 80">
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="rgba(255,255,255,.1)"
+                stroke-width="4"
+              />
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="#ff6b6b"
+                stroke-width="4"
+                stroke-dasharray="213.6"
+                stroke-dashoffset="213.6"
+                class="orb-progress"
+                stroke-linecap="round"
+                transform="rotate(-90 40 40)"
+              />
+            </svg>
+          </div>
+
+          <div class="skill-orb" id="sk7" data-level="82">
+            <div class="orb-icon"><i class="fas fa-database"></i></div>
+            <div class="orb-label">SQL</div>
+            <svg class="orb-ring" viewBox="0 0 80 80">
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="rgba(255,255,255,.1)"
+                stroke-width="4"
+              />
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="#f39c12"
+                stroke-width="4"
+                stroke-dasharray="213.6"
+                stroke-dashoffset="213.6"
+                class="orb-progress"
+                stroke-linecap="round"
+                transform="rotate(-90 40 40)"
+              />
+            </svg>
+          </div>
+
+          <div class="skill-orb" id="sk8" data-level="78">
+            <div class="orb-icon"><i class="fa-brands fa-php"></i></div>
+            <div class="orb-label">PHP</div>
+            <svg class="orb-ring" viewBox="0 0 80 80">
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="rgba(255,255,255,.1)"
+                stroke-width="4"
+              />
+              <circle
+                cx="40"
+                cy="40"
+                r="34"
+                fill="none"
+                stroke="#e056fd"
+                stroke-width="4"
+                stroke-dasharray="213.6"
+                stroke-dashoffset="213.6"
+                class="orb-progress"
+                stroke-linecap="round"
+                transform="rotate(-90 40 40)"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+       PLAYGROUND
+  ═══════════════════════════════════ -->
+    <section class="playground" id="playground">
+      <div class="playground__header">
+        <div class="section-label">— 04 / PLAYGROUND</div>
+        <h2 class="section-title">
+          Where experiments<br /><span class="text-gradient">come alive.</span>
+        </h2>
+        <p class="playground__sub">
+          Interactive demos &amp; AI experiments built just for fun.
+        </p>
+      </div>
+
+      <div class="playground__grid">
+        <!-- EXPERIMENT 1: Generative Art -->
+        <div class="experiment" id="exp1">
+          <div class="experiment__header">
+            <span class="exp-tag">GENERATIVE ART</span>
+            <span class="exp-live">● LIVE</span>
+          </div>
+          <canvas
+            class="exp-canvas"
+            id="genCanvas"
+            width="400"
+            height="220"
+          ></canvas>
+          <div class="experiment__footer">
+            <h4>Particle Galaxy</h4>
+            <p>Click canvas to explode particles</p>
+            <button class="exp-btn" id="regenBtn">Regenerate</button>
+          </div>
+        </div>
+
+        <!-- EXPERIMENT 2: Typing Speed Tester -->
+        <div class="experiment" id="exp2">
+          <div class="experiment__header">
+            <span class="exp-tag">MINI TOOL</span>
+            <span class="exp-live">● INTERACTIVE</span>
+          </div>
+          <div class="typing-test" id="typingTest">
+            <div class="typing-prompt" id="typingPrompt">
+              Press Start to begin typing test
+            </div>
+            <textarea
+              class="typing-input"
+              id="typingInput"
+              placeholder="Your input here..."
+              disabled
+            ></textarea>
+            <div class="typing-stats">
+              <span>WPM: <strong id="wpmDisplay">0</strong></span>
+              <span>ACC: <strong id="accDisplay">100%</strong></span>
+              <span>Time: <strong id="timeDisplay">30s</strong></span>
+            </div>
+            <button class="exp-btn" id="startTyping">Start Test</button>
+          </div>
+        </div>
+
+        <!-- EXPERIMENT 3: CSS Art Morph -->
+        <div class="experiment" id="exp3">
+          <div class="experiment__header">
+            <span class="exp-tag">CSS ART</span>
+            <span class="exp-live">● ANIMATED</span>
+          </div>
+          <div class="morph-stage">
+            <div class="morph-shape" id="morphShape"></div>
+            <div class="morph-controls">
+              <button
+                class="morph-btn active"
+                data-shape="circle"
+                id="shapeCircle"
+              >
+                ◯
+              </button>
+              <button class="morph-btn" data-shape="square" id="shapeSquare">
+                □
+              </button>
+              <button
+                class="morph-btn"
+                data-shape="triangle"
+                id="shapeTriangle"
+              >
+                △
+              </button>
+              <button class="morph-btn" data-shape="star" id="shapeStar">
+                ★
+              </button>
+            </div>
+          </div>
+          <div class="experiment__footer">
+            <h4>Shape Morphing</h4>
+            <p>Click shapes to morph</p>
+          </div>
+        </div>
+
+        <!-- EXPERIMENT 4: Color Palette Generator -->
+        <div class="experiment" id="exp4">
+          <div class="experiment__header">
+            <span class="exp-tag">AI-INSPIRED</span>
+            <span class="exp-live">● TOOL</span>
+          </div>
+          <div class="palette-gen">
+            <div class="palette-swatches" id="paletteSwatches">
+              <div class="swatch" style="background: #6c63ff"></div>
+              <div class="swatch" style="background: #ff6584"></div>
+              <div class="swatch" style="background: #43b89c"></div>
+              <div class="swatch" style="background: #f7df1e"></div>
+              <div class="swatch" style="background: #ff9f43"></div>
+            </div>
+            <div class="palette-codes" id="paletteCodes"></div>
+          </div>
+          <div class="experiment__footer">
+            <h4>Palette Generator</h4>
+            <p>Generate beautiful color palettes</p>
+            <button class="exp-btn" id="genPalette">Generate</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+       MARQUEE STRIP
+  ═══════════════════════════════════ -->
+    <div class="marquee-strip">
+      <div class="marquee-track">
+        <span>DESIGN</span><span>✦</span> <span>DEVELOP</span><span>✦</span>
+        <span>DEPLOY</span><span>✦</span> <span>DREAM</span><span>✦</span>
+        <span>DESIGN</span><span>✦</span> <span>DEVELOP</span><span>✦</span>
+        <span>DEPLOY</span><span>✦</span> <span>DREAM</span><span>✦</span>
+        <span>DESIGN</span><span>✦</span> <span>DEVELOP</span><span>✦</span>
+        <span>DEPLOY</span><span>✦</span> <span>DREAM</span><span>✦</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════ -->
+    <section class="contact" id="contact">
+      <div class="contact__inner">
+        <div class="section-label">— 05 / CONTACT</div>
+        <h2 class="contact__heading">
+          Got a wild idea?<br />
+          <span class="text-gradient">Let's build it.</span>
+        </h2>
+        <p class="contact__sub">
+          I'm open to freelance, collaboration, and full-time opportunities.
+        </p>
+
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nameInput">Name</label>
+              <input
+                type="text"
+                id="nameInput"
+                placeholder="Your name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="emailInput">Email</label>
+              <input
+                type="email"
+                id="emailInput"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subjectInput">Subject</label>
+            <input
+              type="text"
+              id="subjectInput"
+              placeholder="What's the project?"
+            />
+          </div>
+          <div class="form-group">
+            <label for="msgInput">Message</label>
+            <textarea
+              id="msgInput"
+              rows="5"
+              placeholder="Tell me about your idea..."
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="btn btn--primary btn--large"
+            id="submitBtn"
+          >
+            <span>Send Message</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+          <div class="form-success" id="formSuccess">
+            ✓ Message sent! I'll be in touch soon.
+          </div>
+        </form>
+
+        <div class="contact__alt">
+          <span>Or reach me directly:</span>
+          <a href="mailto:Adam@Fahrezi.dev" class="contact__email"
+            >Adam@Fahrezi.dev</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════ -->
+    <footer class="footer">
+      <div class="footer__left">
+        <div class="footer__logo">
+          <span>DOCTYPEX</span
+          >
+        </div>
+        <p>Designed &amp; developed by Adam Fahrezi</p>
+        <p class="footer__copy">&copy; 2025 All rights reserved.</p>
+      </div>
+      <div class="footer__right">
+        <div class="footer__links">
+          <a href="#" class="footer-link">GitHub</a>
+          <a href="#" class="footer-link">LinkedIn</a>
+          <a href="#" class="footer-link">Dribbble</a>
+          <a href="#" class="footer-link">Instagram</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="text/javascript">
+      const aboutSection = document.querySelector('.about');
+      const isoText = document.getElementById('text');
+      
+      function drawStaticShadow() {
+        if (!isoText) return;
+        let shadow = '';
+        const isMobile = window.innerWidth <= 768;
+        const totalLayers = isMobile ? 12 : 35;
+        const fadeLimit = isMobile ? 5 : 15;
+        const blurLimit = isMobile ? 8 : 25;
+        
+        for (let i = 1; i <= totalLayers; i++) {
+          let r, g, b;
+          if (i <= fadeLimit) {
+            const t = i / fadeLimit;
+            r = Math.round(108 + (67 - 108) * t);
+            g = Math.round(99 + (184 - 99) * t);
+            b = Math.round(255 + (156 - 255) * t);
+          } else {
+            const t = (i - fadeLimit) / (totalLayers - fadeLimit);
+            r = Math.round(67 + (10 - 67) * t);
+            g = Math.round(184 + (10 - 184) * t);
+            b = Math.round(156 + (15 - 156) * t);
+          }
+          const xOffset = -i * 0.75;
+          const yOffset = i * 0.75;
+          const blur = i > blurLimit ? (i - blurLimit) * 1.5 : 0;
+          shadow += (shadow ? ', ' : '') + `${xOffset}px ${yOffset}px ${blur}px rgb(${r}, ${g}, ${b})`;
+        }
+        
+        shadow += isMobile
+          ? `, -10px 10px 15px rgba(0, 0, 0, 0.65)`
+          : `, -25px 25px 35px rgba(0, 0, 0, 0.65), -35px 35px 55px rgba(108, 99, 255, 0.25)`;
+        
+        isoText.style.textShadow = shadow;
+      }
+      
+      // Draw initial static shadow
+      drawStaticShadow();
+      
+      // Update shadows on window resize
+      window.addEventListener('resize', drawStaticShadow);
+      
+      if (aboutSection && isoText) {
+        let handleMouseMove = (e) => {
+          const rect = aboutSection.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const deltaX = (x - centerX) / centerX;
+          const deltaY = (y - centerY) / centerY;
+          
+          const isMobile = window.innerWidth <= 768;
+          const baseRotate = isMobile ? -12 : -28;
+          const baseSkew = isMobile ? 10 : 25;
+          
+          const rotateAngle = baseRotate + (deltaY * 5);
+          const skewAngle = baseSkew - (deltaX * 3);
+          
+          isoText.style.transform = `rotate(${rotateAngle}deg) skew(${skewAngle}deg) translateY(${deltaY * -8}px)`;
+          
+          let shadow = '';
+          const totalLayers = isMobile ? 12 : 35;
+          const fadeLimit = isMobile ? 5 : 15;
+          const blurLimit = isMobile ? 8 : 25;
+          
+          for (let i = 1; i <= totalLayers; i++) {
+            let r, g, b;
+            if (i <= fadeLimit) {
+              const t = i / fadeLimit;
+              r = Math.round(108 + (67 - 108) * t);
+              g = Math.round(99 + (184 - 99) * t);
+              b = Math.round(255 + (156 - 255) * t);
+            } else {
+              const t = (i - fadeLimit) / (totalLayers - fadeLimit);
+              r = Math.round(67 + (10 - 67) * t);
+              g = Math.round(184 + (10 - 184) * t);
+              b = Math.round(156 + (15 - 156) * t);
+            }
+            
+            const xOffset = -i * (0.75 + deltaX * 0.15);
+            const yOffset = i * (0.75 + deltaY * 0.15);
+            const blur = i > blurLimit ? (i - blurLimit) * 1.5 : 0;
+            
+            shadow += (shadow ? ', ' : '') + `${xOffset}px ${yOffset}px ${blur}px rgb(${r}, ${g}, ${b})`;
+          }
+          
+          const shadowX = isMobile ? -10 - (deltaX * 4) : -25 - (deltaX * 12);
+          const shadowY = isMobile ? 10 + (deltaY * 4) : 25 + (deltaY * 12);
+          shadow += isMobile
+            ? `, ${shadowX}px ${shadowY}px 15px rgba(0, 0, 0, 0.65)`
+            : `, ${shadowX}px ${shadowY}px 35px rgba(0, 0, 0, 0.65), ${shadowX - 8}px ${shadowY + 8}px 55px rgba(108, 99, 255, 0.25)`;
+          
+          isoText.style.textShadow = shadow;
+        };
+        
+        aboutSection.addEventListener('mousemove', handleMouseMove);
+        
+        aboutSection.addEventListener('mouseleave', () => {
+          const isMobile = window.innerWidth <= 768;
+          const baseRotate = isMobile ? -12 : -28;
+          const baseSkew = isMobile ? 10 : 25;
+          
+          isoText.style.transform = `rotate(${baseRotate}deg) skew(${baseSkew}deg)`;
+          isoText.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)';
+          drawStaticShadow();
+        });
+        
+        aboutSection.addEventListener('mouseenter', () => {
+          isoText.style.transition = 'none';
+        });
+      }
+    </script>
+  </body>
+</html>
