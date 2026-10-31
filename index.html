@@ -22,6 +22,26 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- ═══════════════════════════════════
+       DINO INTRO GAME
+  ═══════════════════════════════════ -->
+    <div class="dino-intro" id="dinoIntro">
+      <div class="dino-hud">
+        <span class="dino-hi">HI&nbsp;<span id="dinoHi">00000</span></span>
+        <span class="dino-score-label">SCORE</span>
+        <span class="dino-score" id="dinoScore">00000</span>
+      </div>
+      <canvas class="dino-canvas" id="dinoCanvas"></canvas>
+      <div class="dino-start-hint" id="dinoStartHint">
+        <span class="dino-key">SPACE</span> to jump
+      </div>
+      <div class="dino-gameover" id="dinoGameOver">
+        <h2 class="dino-gameover-title">GAME OVER</h2>
+        <p class="dino-gameover-sub">Entering website…</p>
+      </div>
+      <div class="dino-wipe"></div>
+    </div>
+
     <!-- Noise Overlay -->
     <div class="noise-overlay"></div>
 
@@ -34,7 +54,6 @@
       </div>
       <ul class="nav__links">
         <li><a href="#hero" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#projects" class="nav-link">Work</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#playground" class="nav-link">Playground</a></li>
@@ -49,7 +68,6 @@
     <div class="mobile-menu" id="mobileMenu">
       <ul>
         <li><a href="#hero" class="mob-link">Home</a></li>
-        <li><a href="#about" class="mob-link">About</a></li>
         <li><a href="#projects" class="mob-link">Work</a></li>
         <li><a href="#skills" class="mob-link">Skills</a></li>
         <li><a href="#playground" class="mob-link">Playground</a></li>
@@ -62,8 +80,7 @@
   ═══════════════════════════════════ -->
     <section class="hero" id="hero">
       <canvas class="hero__canvas" id="heroCanvas"></canvas>
-      <div class="hero__grid-lines"></div>
-
+      <img id="iconstart" src="img/alien.png" alt=""/>
       <div class="hero__content">
         <div class="hero__tag">
           <span class="dot dot--green"></span>
@@ -77,14 +94,11 @@
         </div>
 
         <h1 class="hero__name">
-          The Frontend Engineer for the Web
+          Hi! I'm <span class="text-gradient">Adam Fahrezi</span>
         </h1>
-
-        
-
         <p class="hero__sub">
-          Crafting digital experiences that live at the intersection of<br />
-          <em>design intuition</em> &amp; <em>engineering precision.</em>
+          A Fullstack Dev<br />
+          <em>I graduated from SMK Muhammadiyah 2 <br/> and I’m currently studying Informatics <br/> Engineering at Universitas Muhammadiyah Riau.</em>
         </p>
 
         <div class="hero__actions">
@@ -137,19 +151,9 @@
         <span>Scroll</span>
         <div class="scroll-line"></div>
       </div>
+      <img id="iconstart" src="img/alien.png" alt=""/>
     </section>
-
-    <!-- ═══════════════════════════════════
-       ABOUT — ASYMMETRIC SPLIT
-  ═══════════════════════════════════ -->
-    <section class="about" id="about">
-      <div class="about__grid-lines"></div>
-      <div id="text" data-text="I'M A FULL-STACK DEVELOPER &amp; UI/UX DESIGNER">
-        <span>I'm a Full-stack</span><br />
-        <span>Developer</span><br />
-        <span>&amp; UI/UX Designer</span>
-      </div>
-    </section>
+    
 
     <!-- ═══════════════════════════════════
        PROJECTS
@@ -252,21 +256,21 @@
 
         <article class="project-card" data-tilt id="proj5">
           <div class="project-card__bg">
-            <img src="img/airbook.png" alt="">
+            <img src="img/santara.png" alt="">
           </div>
           <div class="project-card__content">
-            <span class="project-card__year">2025</span>
-            <h3 class="project-card__title">Airbook</h3>
+            <span class="project-card__year">2026</span>
+            <h3 class="project-card__title">Santara</h3>
             <p class="project-card__desc">
-              Premium real-time AI chat UI with glassmorphism panels and live
-              API integration.
+              A healthcar service for hospital and patient, with features like appointment,Ai chatbot,and face scan.
             </p>
             <div class="project-card__tags">
               <span>Laravel</span><span>Tailwind</span><span>Mysql</span>
+              <span>Mediapipe</span><span>Gemini</span>
             </div>
           </div>
           <div class="project-card__overlay">
-            <a href="#" class="project-card__cta"
+            <a href="https://santara.online" class="project-card__cta"
               >View Project <i class="fas fa-arrow-up-right-from-square"></i
             ></a>
           </div>
@@ -584,7 +588,9 @@
             <span class="exp-live">● ANIMATED</span>
           </div>
           <div class="morph-stage">
-            <div class="morph-shape" id="morphShape"></div>
+            <svg class="morph-shape" id="morphShape" viewBox="0 0 80 80" aria-hidden="true">
+              <path id="morphPath" d="M 74 40 C 74 47.18 71.73 54.18 67.51 59.98 C 63.29 65.79 57.34 70.12 50.51 72.34 C 43.68 74.55 36.32 74.55 29.49 72.34 C 22.66 70.12 16.71 65.79 12.49 59.98 C 8.27 54.18 6 47.18 6 40 C 6 32.82 8.27 25.82 12.49 20.02 C 16.71 14.21 22.66 9.88 29.49 7.66 C 36.32 5.45 43.68 5.45 50.51 7.66 C 57.34 9.88 63.29 14.21 67.51 20.02 C 71.73 25.82 74 32.82 74 40"></path>
+            </svg>
             <div class="morph-controls">
               <button
                 class="morph-btn active"
@@ -719,8 +725,8 @@
 
         <div class="contact__alt">
           <span>Or reach me directly:</span>
-          <a href="mailto:adamjonson965@gmail.com" class="contact__email"
-            >adamjonson965@gmail.com</a
+          <a href="mailto:rizzzmaxx740@gmail.com" class="contact__email"
+            >rizzzmaxx740@gmail.com</a
           >
         </div>
       </div>
@@ -740,130 +746,25 @@
       </div>
       <div class="footer__right">
         <div class="footer__links">
-          <a href="#" class="footer-link">GitHub</a>
-          <a href="#" class="footer-link">LinkedIn</a>
-          <a href="#" class="footer-link">Instagram</a>
+          <a href="https://github.com/Defaul00" class="footer-link">GitHub</a>
+          <a href="https://www.instagram.com/doctype_00" class="footer-link">Instagram</a>
         </div>
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script type="text/javascript">
-      const aboutSection = document.querySelector('.about');
-      const isoText = document.getElementById('text');
-      
-      function drawStaticShadow() {
-        if (!isoText) return;
-        let shadow = '';
-        const isMobile = window.innerWidth <= 768;
-        const totalLayers = isMobile ? 12 : 35;
-        const fadeLimit = isMobile ? 5 : 15;
-        const blurLimit = isMobile ? 8 : 25;
-        
-        for (let i = 1; i <= totalLayers; i++) {
-          let r, g, b;
-          if (i <= fadeLimit) {
-            const t = i / fadeLimit;
-            r = Math.round(108 + (67 - 108) * t);
-            g = Math.round(99 + (184 - 99) * t);
-            b = Math.round(255 + (156 - 255) * t);
-          } else {
-            const t = (i - fadeLimit) / (totalLayers - fadeLimit);
-            r = Math.round(67 + (10 - 67) * t);
-            g = Math.round(184 + (10 - 184) * t);
-            b = Math.round(156 + (15 - 156) * t);
-          }
-          const xOffset = -i * 0.75;
-          const yOffset = i * 0.75;
-          const blur = i > blurLimit ? (i - blurLimit) * 1.5 : 0;
-          shadow += (shadow ? ', ' : '') + `${xOffset}px ${yOffset}px ${blur}px rgb(${r}, ${g}, ${b})`;
-        }
-        
-        shadow += isMobile
-          ? `, -10px 10px 15px rgba(0, 0, 0, 0.65)`
-          : `, -25px 25px 35px rgba(0, 0, 0, 0.65), -35px 35px 55px rgba(108, 99, 255, 0.25)`;
-        
-        isoText.style.textShadow = shadow;
-      }
-      
-      // Draw initial static shadow
-      drawStaticShadow();
-      
-      // Update shadows on window resize
-      window.addEventListener('resize', drawStaticShadow);
-      
-      if (aboutSection && isoText) {
-        let handleMouseMove = (e) => {
-          const rect = aboutSection.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          const deltaX = (x - centerX) / centerX;
-          const deltaY = (y - centerY) / centerY;
-          
-          const isMobile = window.innerWidth <= 768;
-          const baseRotate = isMobile ? -12 : -28;
-          const baseSkew = isMobile ? 10 : 25;
-          
-          const rotateAngle = baseRotate + (deltaY * 5);
-          const skewAngle = baseSkew - (deltaX * 3);
-          
-          isoText.style.transform = `rotate(${rotateAngle}deg) skew(${skewAngle}deg) translateY(${deltaY * -8}px)`;
-          
-          let shadow = '';
-          const totalLayers = isMobile ? 12 : 35;
-          const fadeLimit = isMobile ? 5 : 15;
-          const blurLimit = isMobile ? 8 : 25;
-          
-          for (let i = 1; i <= totalLayers; i++) {
-            let r, g, b;
-            if (i <= fadeLimit) {
-              const t = i / fadeLimit;
-              r = Math.round(108 + (67 - 108) * t);
-              g = Math.round(99 + (184 - 99) * t);
-              b = Math.round(255 + (156 - 255) * t);
-            } else {
-              const t = (i - fadeLimit) / (totalLayers - fadeLimit);
-              r = Math.round(67 + (10 - 67) * t);
-              g = Math.round(184 + (10 - 184) * t);
-              b = Math.round(156 + (15 - 156) * t);
-            }
-            
-            const xOffset = -i * (0.75 + deltaX * 0.15);
-            const yOffset = i * (0.75 + deltaY * 0.15);
-            const blur = i > blurLimit ? (i - blurLimit) * 1.5 : 0;
-            
-            shadow += (shadow ? ', ' : '') + `${xOffset}px ${yOffset}px ${blur}px rgb(${r}, ${g}, ${b})`;
-          }
-          
-          const shadowX = isMobile ? -10 - (deltaX * 4) : -25 - (deltaX * 12);
-          const shadowY = isMobile ? 10 + (deltaY * 4) : 25 + (deltaY * 12);
-          shadow += isMobile
-            ? `, ${shadowX}px ${shadowY}px 15px rgba(0, 0, 0, 0.65)`
-            : `, ${shadowX}px ${shadowY}px 35px rgba(0, 0, 0, 0.65), ${shadowX - 8}px ${shadowY + 8}px 55px rgba(108, 99, 255, 0.25)`;
-          
-          isoText.style.textShadow = shadow;
-        };
-        
-        aboutSection.addEventListener('mousemove', handleMouseMove);
-        
-        aboutSection.addEventListener('mouseleave', () => {
-          const isMobile = window.innerWidth <= 768;
-          const baseRotate = isMobile ? -12 : -28;
-          const baseSkew = isMobile ? 10 : 25;
-          
-          isoText.style.transform = `rotate(${baseRotate}deg) skew(${baseSkew}deg)`;
-          isoText.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)';
-          drawStaticShadow();
-        });
-        
-        aboutSection.addEventListener('mouseenter', () => {
-          isoText.style.transition = 'none';
-        });
-      }
+    <script src="dino.js"></script>
+    <script>
+        gsap.to('#iconstart', {
+        duration: 2,
+        y: 100,
+        yoyo: true,
+        ease: "power1.inOut",
+        repeat: -1,
+       
+    });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </body>
 </html>

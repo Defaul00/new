@@ -153,7 +153,7 @@ document.querySelectorAll('.skill-orb').forEach(orb => {
 });
 
 // ── REVEAL ON SCROLL ──
-document.querySelectorAll('.project-card, .experiment, .about__dark-panel, .about__light-panel, .contact__inner').forEach(el => {
+document.querySelectorAll('.project-card, .experiment, .contact__inner').forEach(el => {
   el.classList.add('reveal');
 });
 const revealObs = new IntersectionObserver((entries) => {
@@ -221,12 +221,28 @@ document.getElementById('regenBtn').addEventListener('click', () => {
 });
 
 // ── MORPH SHAPE ──
+const MORPH_PATHS = {
+  circle:
+    'M 74 40 C 74 47.18 71.73 54.18 67.51 59.98 C 63.29 65.79 57.34 70.12 50.51 72.34 C 43.68 74.55 36.32 74.55 29.49 72.34 C 22.66 70.12 16.71 65.79 12.49 59.98 C 8.27 54.18 6 47.18 6 40 C 6 32.82 8.27 25.82 12.49 20.02 C 16.71 14.21 22.66 9.88 29.49 7.66 C 36.32 5.45 43.68 5.45 50.51 7.66 C 57.34 9.88 63.29 14.21 67.51 20.02 C 71.73 25.82 74 32.82 74 40',
+  square:
+    'M 10 10 C 10 10 10 10 30 10 C 30 10 30 10 50 10 C 50 10 50 10 70 10 C 70 10 70 10 70 40 C 70 40 70 40 70 70 C 70 70 70 70 50 70 C 50 70 50 70 30 70 C 30 70 30 70 10 70 C 10 70 10 70 10 40 C 10 40 10 40 10 10',
+  triangle:
+    'M 40 4 C 40 4 40 4 50.67 26 C 50.67 26 50.67 26 61.33 48 C 61.33 48 61.33 48 72 70 C 72 70 72 70 50.67 70 C 50.67 70 50.67 70 29.33 70 C 29.33 70 29.33 70 8 70 C 8 70 8 70 16 53.5 C 16 53.5 16 53.5 24 37 C 24 37 24 37 32 20.5 C 32 20.5 32 20.5 40 4',
+  star:
+    'M 40 6 C 40 6 40 6 47.94 29.08 C 47.94 29.08 47.94 29.08 72.34 29.49 C 72.34 29.49 72.34 29.49 52.84 44.17 C 52.84 44.17 52.84 44.17 59.98 67.51 C 59.98 67.51 59.98 67.51 40 53.5 C 40 53.5 40 53.5 20.02 67.51 C 20.02 67.51 20.02 67.51 27.16 44.17 C 27.16 44.17 27.16 44.17 7.66 29.49 C 7.66 29.49 7.66 29.49 32.06 29.08 C 32.06 29.08 32.06 29.08 40 6'
+};
+
 const morphShape = document.getElementById('morphShape');
+const morphPath = document.getElementById('morphPath');
 document.querySelectorAll('.morph-btn').forEach(btn => {
   btn.addEventListener('click', () => {
+    if (btn.classList.contains('active')) return;
     document.querySelectorAll('.morph-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    morphShape.className = 'morph-shape ' + btn.dataset.shape;
+    morphPath.setAttribute('d', MORPH_PATHS[btn.dataset.shape] || MORPH_PATHS.circle);
+    morphShape.classList.remove('pop');
+    void morphShape.getBoundingClientRect();
+    morphShape.classList.add('pop');
   });
 });
 
@@ -378,3 +394,4 @@ if (startTypingBtn && typingInput) {
   startTypingBtn.addEventListener('click', startTypingTest);
   typingInput.addEventListener('input', calculateStats);
 }
+

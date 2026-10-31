@@ -9,19 +9,15 @@
 
 
 :root {
-  --bg-dark: #0a0a0f;
-  --bg-darker: #050508;
+  --bg-darker: #020202;
   --bg-light: #f0ece4;
-  --bg-cream: #e8e2d6;
-  --accent: #6c63ff;
-  --accent2: #ff6584;
-  --accent3: #43b89c;
+  --bg-cream: #f0f0f0;
+  --bg-cream2: #ffffff;
+  --bg-cream3: #ffffff;
   --text-dark: #111;
   --text-light: #f5f5f5;
   --text-muted: #888;
   --font-display: "Chixa";
-  --font-body: "Space Grotesk", sans-serif;
-  --font-mono: "Space Grotesk",sans-serif;
 }
 
 *,
@@ -39,8 +35,8 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
-  background: var(--bg-dark);
+  font-family: var(--font-display);
+  background: var(--bg-darker);
   color: var(--text-light);
   overflow-x: hidden;
   cursor: pointer;
@@ -69,6 +65,7 @@ button {
   background-repeat: repeat;
 }
 
+
 /* ── NAV ── */
 .nav {
   position: fixed;
@@ -80,9 +77,9 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 1.2rem 3rem;
-  background: rgba(10, 10, 15, 0.7);
+  background: var(--bg-darker);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(243, 241, 241, 0.21);
   transition:
     background 0.3s,
     padding 0.3s;
@@ -92,7 +89,7 @@ button {
   background: rgba(10, 10, 15, 0.92);
 }
 .nav__logo {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -117,7 +114,7 @@ button {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--accent);
+  background: var(--bg-cream);
   transition: width 0.3s;
 }
 .nav__links a:hover {
@@ -186,32 +183,31 @@ button {
 
 /* ── HERO ── */
 .hero {
+  background: var(--bg-darker);
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-dark);
   overflow: hidden;
   padding: 6rem 3rem 3rem;
 }
-.hero__canvas {
+
+.hero::before {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
   z-index: 0;
+  content: "";
+  opacity: 0.5;
+  background-image: radial-gradient(circle, #f0ece4 0.8px, transparent 0.8px);
+  background-size: 10px 25px;
 }
-.hero__grid-lines {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background-image:
-    linear-gradient(rgba(108, 99, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(108, 99, 255, 0.06) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black, transparent);
+
+#iconstart{
+margin: 0px 50px;
+
 }
+
 .hero__content {
   position: relative;
   z-index: 2;
@@ -223,12 +219,12 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 0.75rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--text-light);
-  border: 1px solid rgba(67, 184, 156, 0.3);
+  border: 2px solid var(--bg-cream);
   padding: 0.4rem 1rem;
   border-radius: 999px;
   margin-bottom: 2rem;
@@ -240,8 +236,8 @@ button {
   border-radius: 50%;
 }
 .dot--green {
-  background: var(--accent3);
-  box-shadow: 0 0 8px var(--accent3);
+  background: var(--bg-cream3);
+  box-shadow: 0 0 8px var(--bg-cream3);
   animation: pulse 2s infinite;
 }
 
@@ -257,7 +253,7 @@ button {
   display: block;
   height: 1.2em;
   line-height: 1.2em;
-  color: var(--accent);
+  color: var(--bg-cream);
   animation: role-change 6s infinite;
 }
 
@@ -336,7 +332,7 @@ button {
 .terminal-title {
   flex-grow: 1;
   text-align: center;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 0.7rem;
   color: rgba(255, 255, 255, 0.3);
   text-transform: uppercase;
@@ -363,6 +359,7 @@ button {
 
 .command-text {
   color: #fff;
+  font-family: var(--font-display);
   word-break: break-all;
 }
 
@@ -394,6 +391,16 @@ button {
   font-style: normal;
 }
 
+.hero__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: none;
+}
+
+
 .hero__actions {
   display: flex;
   gap: 1rem;
@@ -411,30 +418,31 @@ button {
   padding: 0.85rem 2rem;
   border-radius: 999px;
   border: none;
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
 }
 .btn--primary {
-  background: var(--accent);
-  color: #fff;
+  background: var(--bg-cream);
+  color: var(--text-dark);
   box-shadow: 0 0 30px rgba(108, 99, 255, 0.3);
 }
 .btn--primary:hover {
-  background: #5a52e0;
+  background: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 0 40px rgba(108, 99, 255, 0.5);
+  border: var(--bg-cream) 2px solid;
+  color: var(--text-light);
 }
 .btn--ghost {
   background: transparent;
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 .btn--ghost:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--bg-cream);
+  color: var(--bg-cream);
 }
 .btn--large {
   padding: 1rem 2.5rem;
@@ -458,7 +466,7 @@ button {
   color: #fff;
 }
 .stat__plus {
-  color: var(--accent);
+  color: var(--bg-cream);
   font-size: 1.4rem;
 }
 .stat__label {
@@ -497,7 +505,7 @@ button {
   height: 100%;
 }
 .badge-svg text {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 7.5px;
   fill: var(--text-light);
   letter-spacing: 2px;
@@ -510,7 +518,7 @@ button {
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  color: var(--accent);
+  color: var(--bg-cream);
 }
 .badge-ring {
   position: relative;
@@ -536,7 +544,7 @@ button {
 .scroll-line {
   width: 1px;
   height: 40px;
-  background: linear-gradient(to bottom, var(--accent), transparent);
+  background: linear-gradient(to bottom, var(--bg-cream), transparent);
   animation: scrollPulse 2s ease infinite;
 }
 @keyframes scrollPulse {
@@ -579,71 +587,10 @@ button {
 }
 
 /* -----------------------------------
-   CSS PART 2: ABOUT SECTION (ASYMMETRIC)
------------------------------------ */
-.about {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 80vh;
-  background: var(--bg-dark);
-  position: relative;
-  overflow: hidden;
-  padding: 8rem 2rem;
-}
-
-/* Glowing background blob behind the 3D text */
-.about::before {
-  content: '';
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(108, 99, 255, 0.12) 0%, rgba(67, 184, 156, 0.05) 50%, transparent 70%);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 0;
-  filter: blur(40px);
-}
-
-.about__grid-lines {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-image:
-    linear-gradient(rgba(108, 99, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(108, 99, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black, transparent);
-  pointer-events: none;
-}
-
-.about #text {
-  position: relative;
-  color: #fff;
-  font-family: var(--font-display), sans-serif;
-  font-weight: 800;
-  font-size: clamp(2.2rem, 5.8vw, 5.5rem);
-  line-height: 1.15;
-  letter-spacing: 3px;
-  text-align: center;
-  text-transform: uppercase;
-  transform: rotate(-28deg) skew(25deg);
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-  user-select: none;
-  z-index: 2;
-  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.about #text::before {
-  display: none; /* We will use our advanced dynamic text-shadow instead */
-}
-/* -----------------------------------
    CSS PART 3: PROJECTS
 ----------------------------------- */
 .projects {
-  background: var(--bg-dark);
+  background: var(--bg-darker);
   padding: 8rem 3rem;
 }
 .projects__header {
@@ -660,7 +607,7 @@ button {
   color: #fff;
 }
 .text-gradient {
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  background: linear-gradient(135deg, var(--bg-cream), var(--bg-cream));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -674,7 +621,7 @@ button {
 .project-card {
   position: relative;
   border-radius: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.007);
   overflow: hidden;
   min-height: 350px;
   transition: transform 0.4s ease;
@@ -725,9 +672,9 @@ button {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 30%, transparent 100%);
 }
 .project-card__year {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 0.7rem;
-  color: var(--accent);
+  color: var(--bg-cream);
   letter-spacing: 2px;
   margin-bottom: 0.3rem;
 }
@@ -760,7 +707,7 @@ button {
   position: absolute;
   inset: 0;
   z-index: 3;
-  background: rgba(108, 99, 255, 0.85);
+  background: var(--bg-cream);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -774,7 +721,7 @@ button {
   font-family: var(--font-display);
   font-size: 1.2rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-dark);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -851,6 +798,7 @@ button {
   height: 100%;
 }
 .orb-progress {
+  stroke: #ffffff;
   transition: stroke-dashoffset 1.5s ease;
 }
 
@@ -858,7 +806,7 @@ button {
    CSS PART 5: PLAYGROUND
 ----------------------------------- */
 .playground {
-  background: var(--bg-dark);
+  background: var(--bg-darker);
   padding: 8rem 3rem;
 }
 .playground__header {
@@ -886,7 +834,7 @@ button {
     transform 0.3s;
 }
 .experiment:hover {
-  border-color: rgba(108, 99, 255, 0.3);
+  border-color: var(--bg-cream);
   transform: translateY(-4px);
 }
 .experiment__header {
@@ -897,15 +845,15 @@ button {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 .exp-tag {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 0.65rem;
   letter-spacing: 2px;
-  color: var(--accent);
+  color: var(--bg-cream);
 }
 .exp-live {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 0.65rem;
-  color: var(--accent3);
+  color: var(--bg-cream3);
 }
 .exp-canvas {
   width: 100%;
@@ -928,17 +876,17 @@ button {
   margin-bottom: 0.8rem;
 }
 .exp-btn {
-  background: rgba(108, 99, 255, 0.15);
-  color: var(--accent);
-  border: 1px solid rgba(108, 99, 255, 0.3);
+  background: var(--bg-cream);
+  color: var(--text-dark);
   padding: 0.5rem 1.2rem;
   border-radius: 8px;
   font-size: 0.8rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   transition: all 0.3s;
 }
 .exp-btn:hover {
-  background: var(--accent);
+  background: transparent;
+  color: var(--text-light);
   color: #fff;
 }
 
@@ -947,7 +895,7 @@ button {
   padding: 1.5rem;
 }
 .typing-prompt {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 0.85rem;
   line-height: 1.8;
   padding: 1rem;
@@ -963,7 +911,7 @@ button {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: #fff;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 0.85rem;
   padding: 0.8rem;
   border-radius: 8px;
@@ -972,7 +920,7 @@ button {
   transition: border-color 0.3s;
 }
 .typing-input:focus {
-  border-color: var(--accent);
+  border-color: var(--bg-cream);
 }
 .typing-stats {
   display: flex;
@@ -982,7 +930,7 @@ button {
   color: var(--text-muted);
 }
 .typing-stats strong {
-  color: var(--accent);
+  color: var(--bg-cream);
 }
 
 /* Morph Shape */
@@ -998,42 +946,26 @@ button {
 .morph-shape {
   width: 80px;
   height: 80px;
-  background: var(--accent);
-  border-radius: 50%;
-  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  box-shadow: 0 0 40px rgba(108, 99, 255, 0.4);
+  overflow: visible;
+  filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.45));
 }
-.morph-shape.square {
-  border-radius: 12px;
-  background: var(--accent2);
-  box-shadow: 0 0 40px rgba(255, 101, 132, 0.4);
+.morph-shape path {
+  fill: #ffffff;
+  transition: d 0.65s cubic-bezier(0.34, 1.3, 0.64, 1);
 }
-.morph-shape.triangle {
-  width: 0;
-  height: 0;
-  background: transparent;
-  border-left: 45px solid transparent;
-  border-right: 45px solid transparent;
-  border-bottom: 80px solid var(--accent3);
-  border-radius: 0;
-  box-shadow: none;
+.morph-shape.pop {
+  animation: morphPop 0.6s cubic-bezier(0.34, 1.3, 0.64, 1);
 }
-.morph-shape.star {
-  background: #f7df1e;
-  border-radius: 4px;
-  clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
-  );
-  box-shadow: 0 0 40px rgba(247, 223, 30, 0.4);
+@keyframes morphPop {
+  0% {
+    transform: scale(0.85) rotate(-40deg);
+  }
+  60% {
+    transform: scale(1.08) rotate(4deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
 }
 .morph-controls {
   display: flex;
@@ -1046,6 +978,7 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.05);
   color: #fff;
+  font-family: var(--font-display);
   font-size: 1.2rem;
   display: flex;
   align-items: center;
@@ -1054,8 +987,8 @@ button {
 }
 .morph-btn.active,
 .morph-btn:hover {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--bg-cream);
+  border-color: var(--bg-cream);
 }
 
 /* Palette Generator */
@@ -1079,7 +1012,7 @@ button {
   flex: 2;
 }
 .palette-codes {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 0.7rem;
   color: var(--text-muted);
   display: flex;
@@ -1091,7 +1024,7 @@ button {
    CSS PART 6: MARQUEE, CONTACT, FOOTER
 ----------------------------------- */
 .marquee-strip {
-  background: var(--accent);
+  background: var(--bg-cream);
   padding: 1rem 0;
   overflow: hidden;
   transform: rotate(-1deg) scale(1.02);
@@ -1107,7 +1040,7 @@ button {
   font-size: 1.5rem;
   font-weight: 800;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--text-dark);
 }
 @keyframes marquee {
   to {
@@ -1116,7 +1049,7 @@ button {
 }
 
 .contact {
-  background: var(--bg-dark);
+  background: var(--bg-darker);
   padding: 8rem 3rem;
   display: flex;
   justify-content: center;
@@ -1165,7 +1098,7 @@ button {
   color: #fff;
   padding: 0.9rem 1rem;
   border-radius: 10px;
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 0.9rem;
   outline: none;
   transition:
@@ -1174,15 +1107,15 @@ button {
 }
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: var(--accent);
+  border-color: var(--bg-cream);
   box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
 }
 .form-success {
   display: none;
   text-align: center;
   padding: 1rem;
-  color: var(--accent3);
-  font-family: var(--font-mono);
+  color: var(--bg-cream);
+  font-family: var(--font-display);
   font-size: 0.9rem;
 }
 .form-success.show {
@@ -1197,14 +1130,14 @@ button {
 }
 .contact__email {
   display: inline-block;
-  color: var(--accent);
+  color: var(--bg-cream);
   font-weight: 600;
   margin-left: 0.5rem;
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s;
 }
 .contact__email:hover {
-  border-color: var(--accent);
+  border-color: var(--bg-cream);
 }
 
 /* Footer */
@@ -1216,7 +1149,7 @@ button {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 .footer__logo {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -1240,7 +1173,7 @@ button {
   transition: color 0.3s;
 }
 .footer-link:hover {
-  color: var(--accent);
+  color: var(--bg-cream);
 }
 
 /* -----------------------------------
@@ -1296,7 +1229,23 @@ button {
 }
 @media (max-width: 768px) {
   .hero {
-    padding: 5rem 1.5rem 3rem;
+    padding: 6rem 1.5rem 3rem;
+  }
+  #iconstart {
+    display: none;
+  }
+  .hero__content {
+    width: 100%;
+    max-width: 36rem;
+    padding-bottom: 3rem;
+  }
+  .hero__tag {
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero__sub em br {
+    display: none;
   }
   .hero__badge {
     display: none; /* Hide badge on mobile to prevent navbar and title overlaps */
@@ -1316,10 +1265,6 @@ button {
     margin-right: 5px;
   }
   
-  .about #text {
-    font-size: clamp(1.4rem, 6vw, 2.5rem);
-    transform: rotate(-12deg) skew(10deg);
-  }
   .projects {
     padding: 4rem 1.5rem;
   }
@@ -1386,5 +1331,208 @@ button {
   body,
   button {
     cursor: auto;
+  }
+}
+
+/* ═══════════════════════════════════
+   DINO INTRO GAME
+═══════════════════════════════════ */
+.dino-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--bg-darker);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: all;
+}
+.dino-intro.hidden {
+  display: none;
+}
+
+.dino-hud {
+  position: relative;
+  width: min(560px, 90vw);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+.dino-hi {
+  position: absolute;
+  left: 0;
+}
+.dino-score-label {
+  color: var(--text-muted);
+}
+.dino-score {
+  color: var(--bg-cream);
+  font-variant-numeric: tabular-nums;
+}
+
+.dino-canvas {
+  display: block;
+  width: min(560px, 90vw);
+  height: 200px;
+  background: transparent;
+  image-rendering: pixelated;
+  border-bottom: 2px solid rgba(240, 236, 228, 0.08);
+}
+
+.dino-start-hint {
+  margin-top: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  animation: dinoBlink 1.4s step-end infinite;
+}
+.dino-key {
+  display: inline-block;
+  border: 1px solid var(--bg-cream);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+  color: var(--bg-cream);
+  font-weight: 700;
+  margin-right: 0.25rem;
+}
+
+@keyframes dinoBlink {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+/* Crash flash */
+.dino-intro.flash .dino-canvas {
+  filter: brightness(2.2) sepia(0.4) hue-rotate(-50deg) saturate(4);
+}
+
+/* GAME OVER panel */
+.dino-gameover {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 60, 60, 0.12),
+    rgba(2, 2, 2, 0.55) 70%
+  );
+  opacity: 0;
+  pointer-events: none;
+}
+.dino-gameover.show {
+  opacity: 1;
+  transition: opacity 0.15s ease;
+}
+.dino-gameover-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: #fff;
+  text-shadow: 0 0 30px rgba(255, 80, 80, 0.6);
+  animation: dinoShake 0.35s linear infinite;
+}
+.dino-gameover-sub {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+@keyframes dinoShake {
+  0%, 100% { transform: translate(0, 0) rotate(0); }
+  25% { transform: translate(-2px, 1px) rotate(-1deg); }
+  50% { transform: translate(2px, -1px) rotate(1deg); }
+  75% { transform: translate(-1px, -1px) rotate(0); }
+}
+.dino-burst {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 16vw, 9rem);
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 3px var(--bg-cream);
+  opacity: 0.35;
+  transform: rotate(-8deg);
+  animation: dinoBurst 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  pointer-events: none;
+}
+@keyframes dinoBurst {
+  0% {
+    transform: rotate(-8deg) scale(0.3);
+    opacity: 0;
+  }
+  60% {
+    transform: rotate(-8deg) scale(1.15);
+    opacity: 0.6;
+  }
+  100% {
+    transform: rotate(-8deg) scale(1);
+    opacity: 0.35;
+  }
+}
+
+/* Comic wipe reveal */
+.dino-wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  background: var(--bg-cream);
+  transform: translateY(101%);
+  pointer-events: none;
+}
+.dino-intro.leaving {
+  animation: dinoIntroOut 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.dino-intro.leaving .dino-wipe {
+  animation: dinoWipeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes dinoWipeUp {
+  0% {
+    transform: translateY(101%);
+  }
+  55% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-101%);
+  }
+}
+@keyframes dinoIntroOut {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .dino-hud {
+    width: 92vw;
+  }
+  .dino-canvas {
+    width: 92vw;
+    height: 200px;
   }
 }
